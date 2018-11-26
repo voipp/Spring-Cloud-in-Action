@@ -2,12 +2,12 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.thoughtmechanix</groupId>
+  <groupId>springcloud.tutorial</groupId>
   <artifactId>licensing-service</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Eagle Eye Licensing Service</name>
+  <name>Licensing Service</name>
   <description>Licensing Service</description>
 
   <parent>
@@ -67,24 +67,49 @@
       <artifactId>h2</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>9.1-901.jdbc4</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-rsa</artifactId>
-  </dependency>
+      <!--<dependency>-->
+          <!--<groupId>org.springframework.cloud</groupId>-->
+          <!--<artifactId>spring-cloud-stream</artifactId>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+          <!--<groupId>org.springframework.cloud</groupId>-->
+          <!--<artifactId>spring-cloud-starter-stream-kafka</artifactId>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-redis</artifactId>
+          <version>1.7.4.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>redis.clients</groupId>
+          <artifactId>jedis</artifactId>
+          <version>2.9.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-pool2</artifactId>
+          <version>2.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-hystrix</artifactId>
+      </dependency>
+      <dependency>
+          <groupId>com.netflix.hystrix</groupId>
+          <artifactId>hystrix-javanica</artifactId>
+          <version>1.5.9</version>
+      </dependency>
   </dependencies>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <start-class>com.thoughtmechanix.licenses.Application</start-class>
-    <docker.image.name>johncarnell/tmx-licensing-service</docker.image.name>
-    <docker.image.tag>chapter4</docker.image.tag>
+    <start-class>com.springcloudtutorial.licenses.com.voipp.zuul.Application</start-class>
+      <docker.image.name>springcloud/licensingserver</docker.image.name>
+      <docker.image.tag>latest</docker.image.tag>
   </properties>
 
   <build>

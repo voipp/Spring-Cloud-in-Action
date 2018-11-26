@@ -1,12 +1,28 @@
 spring:
   application:
     name: licensingservice
-  profiles:
-    active:
-      default
   cloud:
     config:
-      enabled: true
+      uri: http://54.191.33.84:8888
+#    stream:
+#      enabled: false
+#      bindings:
+#        input:
+#          destination: orgChangeTopic
+#          content-type: application/json
+#          group: licensingGroup
+#        binder:
+#          zkNodes: localhost
+#          brokers: localhost
+
+spring.datasource.url: jdbc:h2:file:~/testdb
+
+#      uri: http://34.222.243.92:8888
+#
+#      enabled: true
 #      discovery:
 #        enabled: true
 #        serviceId: configserver
+
+#spring.cloud.config.username=root
+#spring.cloud.config.password=s3cr3t

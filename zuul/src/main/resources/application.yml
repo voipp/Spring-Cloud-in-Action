@@ -1,0 +1,17 @@
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://54.187.29.118:8761/eureka/
+
+server:
+  port: 8084
+
+zuul:
+  routes:
+    licensingservice: /license/**
+  debug:
+    request: true
