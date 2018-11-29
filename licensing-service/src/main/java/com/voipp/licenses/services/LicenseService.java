@@ -49,19 +49,19 @@ public class LicenseService {
                 .withComment(config.getExampleProperty());
     }
 
-    @HystrixCommand(
-            commandProperties =
-                    {@HystrixProperty(
-                            name = "execution.isolation.thread.timeoutInMilliseconds",
-                            value = "2000"),
-                            @HystrixProperty(name = "coreSize", value = "30"),
-                            @HystrixProperty(name = "maxQueueSize", value = "10")
-                    },
-            fallbackMethod = "buildFallbackLicenseList",
-            threadPoolKey = "licenseByOrgThreadPool"
-    )
+//    @HystrixCommand(
+//            commandProperties =
+//                    {@HystrixProperty(
+//                            name = "execution.isolation.thread.timeoutInMilliseconds",
+//                            value = "2000"),
+//                            @HystrixProperty(name = "coreSize", value = "30"),
+//                            @HystrixProperty(name = "maxQueueSize", value = "10")
+//                    },
+//            fallbackMethod = "buildFallbackLicenseList",
+//            threadPoolKey = "licenseByOrgThreadPool"
+//    )
     public List<License> getLicensesByOrg(String organizationId) throws InterruptedException {
-        Thread.sleep(3_000);
+        //Thread.sleep(3_000);
 
         return licenseRepository.findByOrganizationId(organizationId);
     }

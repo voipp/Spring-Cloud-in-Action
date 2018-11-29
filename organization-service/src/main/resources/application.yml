@@ -1,13 +1,14 @@
 spring:
   application:
     name: organizationservice
+  cloud:
     stream:
       bindings:
         output:
-          destination: orgChangeTopic
-          content-type: application/json
-        kafka:
-          binder:
+            destination:  orgChangeTopic
+            content-type: application/json
+      kafka:
+        binder:
           zkNodes: localhost
           brokers: localhost
 
@@ -18,7 +19,7 @@ eureka:
             registerWithEureka: true
             fetchRegistry: true
             serviceUrl:
-              defaultZone: http://54.187.29.118:8761/eureka/
+              defaultZone: http://34.211.218.205:8761/eureka/
 
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE

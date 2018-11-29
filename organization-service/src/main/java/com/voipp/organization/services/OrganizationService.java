@@ -17,6 +17,8 @@ public class OrganizationService {
     private SimpleSource simpleSource;
 
     public Organization getOrg(String organizationId) {
+        simpleSource.publishOrgChange("GET", organizationId);
+
         return orgRepository.findById(organizationId);
     }
 
@@ -24,8 +26,6 @@ public class OrganizationService {
         org.setId( UUID.randomUUID().toString());
 
         orgRepository.save(org);
-
-        simpleSource.publishOrgChange("SAVE", org.getId());
     }
 
     public void updateOrg(Organization org){

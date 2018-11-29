@@ -30,11 +30,8 @@ public class SimpleSource {
                 action,
                 orgId,
                 ctx.getCorrelationId());
-        source
-                .output()
-                .send(
-                        MessageBuilder
-                                .withPayload(change)
-                                .build());
+
+        source.output()
+                .send(MessageBuilder.withPayload("HELLO_WORLD").build());
     }
 }

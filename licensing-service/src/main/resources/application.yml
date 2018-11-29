@@ -1,5 +1,16 @@
-server:
-  port: 8990
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroup
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+
 
 eureka:
           instance:
@@ -8,10 +19,20 @@ eureka:
             registerWithEureka: true
             fetchRegistry: true
             serviceUrl:
-              defaultZone: http://54.191.33.84:8761/eureka/
+              defaultZone: http://34.211.218.205:8761/eureka/
 
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 spring.jpa.generate-ddl: true
 spring.jpa.hibernate.ddl-auto: true
 spring.datasource.initialize : true
+
+# H2
+spring.h2.console.enabled: true
+spring.h2.console.path: /h2
+# Datasource
+spring.datasource.url: jdbc:h2:file:~/licensetest
+spring.datasource.username: sa
+spring.datasource.driver-class-name: org.h2.Driver
+spring.jpa.show-sql: "true"
+spring.datasource.validationQuery: "SELECT 1"

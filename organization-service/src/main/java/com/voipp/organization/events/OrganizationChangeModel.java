@@ -1,6 +1,8 @@
 package com.voipp.organization.events;
 
-public class OrganizationChangeModel {
+import java.io.Serializable;
+
+public class OrganizationChangeModel implements Serializable {
     private final String typeName;
     private final String action;
     private final String orgId;
